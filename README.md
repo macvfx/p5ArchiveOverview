@@ -1,6 +1,7 @@
 # P5 Archive Overview
 
 A native macOS application for querying and managing Archiware P5 Archive server data with secure credential storage and historical tracking. [Based on the script api-archive-overview.sh](https://github.com/macvfx/Archiware)
+![P5 Archive Overview Set Up 3](https://github.com/user-attachments/assets/827f1d47-e9bf-4792-8356-197acba1adec)
 
 ## Requirements
 
