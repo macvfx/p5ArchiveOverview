@@ -57,6 +57,12 @@ A native macOS application for querying and managing Archiware P5 Archive server
 - **CSV not created**: Install `jq` with `brew install jq` in macOS 14
 - **Note:** jq is included by default in macOS 15 (Sequoia) and later
 
+## Known Issues
+
+- Sometimes jq will not be detected properly after installation
+- Issues reported on macOS 14 no csv created after 3rd party jq installed
+- Issues reported of csv created but jq still reporting as not installed
+  
 ## License
 
 MIT License
