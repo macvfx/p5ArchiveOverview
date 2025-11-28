@@ -69,4 +69,4 @@ MIT License
 
 ## Acknowledgments
 
-- Built for use with [Archiware P5](https://www.archiware.com/)
+Built for use with [Archiware P5](https://www.archiware.com/)
