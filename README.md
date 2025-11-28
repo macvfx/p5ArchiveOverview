@@ -66,3 +66,7 @@ A native macOS application for querying and managing Archiware P5 Archive server
 ## License
 
 MIT License
+
+## Acknowledgments
+
+- Built for use with [Archiware P5](https://www.archiware.com/)
