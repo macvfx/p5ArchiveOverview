@@ -60,6 +60,14 @@ A native macOS application for querying and managing Archiware P5 Archive server
 - **CSV not created**: Install `jq` with `brew install jq` in macOS 14 or earlier
 - **Note:** jq is included by default in macOS 15 (Sequoia) and later
 
+## Changelog
+
+### v1.7
+
+**Added**
+- **Import Servers JSON** and **Export Servers JSON** buttons in the server sidebar.
+- **Auto-detection of `P5Servers.json`** at launch from `/Users/Shared/` and `~/Documents/`.
+- 
 ## Known Issues
 
 - *FIXED in 1.6* Sometimes jq will not be detected properly after installation
