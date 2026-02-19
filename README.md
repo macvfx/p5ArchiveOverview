@@ -67,7 +67,7 @@ A native macOS application for querying and managing Archiware P5 Archive server
 **Added**
 - **Import Servers JSON** and **Export Servers JSON** buttons in the server sidebar.
 - **Auto-detection of `P5Servers.json`** at launch from `/Users/Shared/` and `~/Documents/`.
-- 
+  
 ## Known Issues
 
 - *FIXED in 1.6* Sometimes jq will not be detected properly after installation
