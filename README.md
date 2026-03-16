@@ -4,7 +4,7 @@ A native macOS application for querying and managing Archiware P5 Archive server
 ![P5 Archive Overview Set Up 3](https://github.com/user-attachments/assets/827f1d47-e9bf-4792-8356-197acba1adec)
 
 
-![macOS](https://img.shields.io/badge/macOS-14.0+-blue) ![Swift](https://img.shields.io/badge/Swift-5.9-orange) ![License](https://img.shields.io/badge/License-MIT-green)
+![macOS](https://img.shields.io/badge/macOS-14.0+-blue) ![Swift](https://img.shields.io/badge/Swift-5.9-orange)
 
 ## Requirements
 
@@ -61,6 +61,32 @@ A native macOS application for querying and managing Archiware P5 Archive server
 - **Note:** jq is included by default in macOS 15 (Sequoia) and later
 
 ## Changelog
+
+### v2.0
+### New Features
+
+- **Manage Servers sheet** — new dedicated dialog for all server management: Add, Edit, Duplicate, Delete, Import JSON, and Export JSON; replaces scattered sidebar controls
+- **Duplicate Server** — clone an existing server configuration including Keychain password in one click; the copy gets a unique alias suffix
+
+### UI Changes
+
+- **Cleaner sidebar** — now shows only the server list, a single Manage Servers button, and database stats
+- **Add/Edit Server form** — IP Address and Port inputs now on separate rows for clearer spacing
+- **Manual import warning** — importing JSON now warns before proceeding when duplicates are detected, then imports only new entries
+
+### Import/Export Improvements
+
+- **Duplicate detection rule** — a server is treated as duplicate when alias, IP address, and port all match an existing entry
+- **Launch-time auto-import** now skips entries that already exist using the same alias + IP + port rule
+
+### v1.9
+
+- **Sidebar header** now shows "P5 Archive Overview" and the current version number (read from app bundle) instead of plain "Servers" label
+
+### v1.8
+
+- Added **About window** — shows app name, version, build number, copyright, and link to code.matx.ca
+- Added **Help menu item** — opens the About window from the Help menu
 
 ### v1.7
 
