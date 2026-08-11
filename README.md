@@ -12,8 +12,12 @@ A native macOS application for querying and managing Archiware P5 Archive server
 
 - macOS 14.0 or later
 - Archiware P5 server with REST API enabled
-- `jq` command-line tool (optional, for CSV export during queries)
-- **Note:** jq is included by default in macOS 15 (Sequoia) and later
+- CSV export during queries requires the `jq` command-line tool
+  - macOS 14: install `jq` with Homebrew
+    ```bash
+    brew install jq
+    ```
+  - macOS 15 or later: `jq` is included with macOS; no separate installation is required
 
 ## Quick Start
 
@@ -84,8 +88,7 @@ Passwords remain local and are stored in macOS Keychain.
 - **Offline server**: Connection attempts stop after eight seconds. Use **Cancel Query** or `Esc` to stop sooner and select another server
 - **Query times out after connecting**: Large connected queries have a five-minute ceiling; verify P5 responsiveness and try again
 - **Query fails**: Check server IP, port, and credentials; ensure P5 REST API is enabled
-- **CSV not created**: Install `jq` with `brew install jq` in macOS 14 or earlier
-- **Note:** jq is included by default in macOS 15 (Sequoia) and later
+- **CSV not created**: On macOS 14, install `jq` with `brew install jq`. macOS 15 or later already includes `jq`
 
 ## Changelog
 
