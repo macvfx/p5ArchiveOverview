@@ -62,6 +62,13 @@ A native macOS application for querying and managing Archiware P5 Archive server
 
 ## Changelog
 
+### v2.0.1 (Build 9) — 2026-08-10
+
+- **Reviewed server discovery** — `P5Servers.json` is shown in a review sheet before any new connections are added.
+- **Decision controls** — add the new servers, defer with **Not Now**, or ignore that exact file revision.
+- **Stable identity** — matches host, port, and username without using the editable alias.
+- **Revision memory** — accepted and ignored manifests are remembered by SHA-256 fingerprint, preventing repeated prompts and unwanted re-creation of deleted configurations.
+
 ### v2.0
 ### New Features
 
@@ -77,7 +84,7 @@ A native macOS application for querying and managing Archiware P5 Archive server
 ### Import/Export Improvements
 
 - **Duplicate detection rule** — a server is treated as duplicate when alias, IP address, and port all match an existing entry
-- **Launch-time auto-import** now skips entries that already exist using the same alias + IP + port rule
+- **Launch-time auto-import** skipped entries that already existed using the same alias + IP + port rule; v2.0.1 replaces automatic import with explicit review.
 
 ### v1.9
 
