@@ -12,12 +12,9 @@ A native macOS application for querying and managing Archiware P5 Archive server
 
 - macOS 14.0 or later
 - Archiware P5 server with REST API enabled
-- CSV export during queries requires the `jq` command-line tool
-  - macOS 14: install `jq` with Homebrew
-    ```bash
-    brew install jq
-    ```
-  - macOS 15 or later: `jq` is included with macOS; no separate installation is required
+
+Nothing else. Since 2.1 the app writes its CSVs itself and launches no subprocesses, so `jq` is no
+longer required.
 
 ## Quick Start
 
@@ -72,6 +69,23 @@ Passwords remain local and are stored in macOS Keychain.
 - **Automatic Deduplication**: Historical records are deduplicated by server, pool, start time, finish time, and client
 - **CSV Export**: Export both current query results and historical data
 
+### Per-server HTTP or HTTPS
+P5 serves the same REST API in the clear on port 8000 and over TLS on port 8443. Each server has
+its own Protocol setting, since TLS is enabled per installation.
+
+- **Check Certificate** shows the fingerprint and subject of the certificate the server presents,
+  and whether macOS trusts it. P5 ships a self-signed certificate macOS will not accept on its own,
+  so trusting it once records that exact certificate
+- A server that later presents a different certificate is refused, not quietly accepted
+
+### One row per job
+A job is identified by its server, its client and its start time — the things that do not change
+while it runs — so a job recorded while running is refreshed when it finishes rather than stored a
+second time.
+
+### In-app guide
+Help → P5 Archive Overview User Guide (⌘?), and What's New for each version's changes.
+
 ## Keyboard Shortcuts
 
 | Action | Shortcut |
@@ -88,9 +102,24 @@ Passwords remain local and are stored in macOS Keychain.
 - **Offline server**: Connection attempts stop after eight seconds. Use **Cancel Query** or `Esc` to stop sooner and select another server
 - **Query times out after connecting**: Large connected queries have a five-minute ceiling; verify P5 responsiveness and try again
 - **Query fails**: Check server IP, port, and credentials; ensure P5 REST API is enabled
-- **CSV not created**: On macOS 14, install `jq` with `brew install jq`. macOS 15 or later already includes `jq`
+- **A history row shows an empty Plan**: the plan is filled in the next time that server is queried, provided P5 still reports the job
+- **A job says "In progress" under Finish Time**: P5 reports a running job with its finish time set to its start time, as a placeholder
+- **A server's certificate is refused**: P5 ships a self-signed certificate macOS will not accept. Edit the server, click **Check Certificate**, and trust it once
 
 ## Changelog
+
+### v2.2 (Build 16) — 2026-09-18
+- Each server chooses HTTP or HTTPS, with certificate checking and pinning for the self-signed certificate P5 ships
+- A real in-app user guide and What's New, replacing a Help menu that opened the About window
+- A refused certificate no longer reports itself as "cancelled"
+
+### v2.1 (Build 14) — 2026-09-17
+- One row per job: a job seen while running is refreshed when it finishes, rather than stored twice
+- Status filter in History — All, Finished, Error, Cancelled or Running, with counts
+- Plan column, separate from Pool. P5 reports both and earlier versions showed only the pool
+- No P5 password reaches a process's arguments; requests and Keychain access happen in-process
+- `jq` is no longer required — the CSVs are written by the app
+- Sizes in exported CSVs are unquoted, so a spreadsheet adds them up
 
 ### v2.0.2 (Build 10) — 2026-08-11
 
@@ -141,9 +170,8 @@ Passwords remain local and are stored in macOS Keychain.
   
 ## Known Issues
 
-- *FIXED in 1.6* Sometimes jq will not be detected properly after installation
-- *FIXED in 1.6* Issues reported on macOS 14 no csv created after 3rd party jq installed
-- *FIXED in 1.6* Issues reported of csv created but jq still reporting as not installed
+- *Resolved in 2.1* Every issue below concerned detecting `jq`, which the app no longer uses —
+  the CSVs are written by the app itself.
   
 ## License
 
