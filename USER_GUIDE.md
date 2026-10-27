@@ -14,6 +14,9 @@ the same ground. Change one, change the other.
    leaves this Mac except as the login P5 itself asks for.
 2. **Run a query** — select the server in the sidebar and click Run Query. One request goes to P5;
    results appear in the table and progress in the log below it.
+   - **Right-click a server in the sidebar** for **Edit…** (opens Manage Servers with that server
+     already selected) and **Delete…** (asks whether to also delete that server's saved history,
+     since a plain delete leaves it behind).
 3. **Read the results** — each row is one archive job: which plan ran, which media pool it wrote
    to, when it started and finished, how big it was, which client the data came from, and the
    directories it archived. Select any row and choose **Job Details** to read P5's detailed result.
@@ -106,8 +109,12 @@ recorded while running is updated when it finishes rather than stored again.
   how many rows it would give, counted within whichever server is selected.
 - **Both filters follow the export.** The CSV contains what you are looking at, and the status
   appears in the filename so an errors-only file cannot later be mistaken for a full one.
-- **Delete ignores the status filter.** It removes the selected server's whole history. Deleting
-  only what happens to be on screen is not what a trash button beside a filter should mean.
+- **Delete ignores the status filter.** The red trash button removes the selected server's whole
+  history. Deleting only what happens to be on screen is not what a trash button beside a filter
+  should mean.
+- **Delete just some rows** by selecting them — click one, shift-click a range, or cmd-click a
+  scattered selection — then press Delete/Backspace, right-click and choose Delete, or use the
+  trash button that appears in the toolbar while something is selected.
 - **What a refresh changes** — a job already in history has its status, finish time and size
   updated by a later query. Plan, pool and directories are only filled in when they were empty, so
   a short or interrupted response cannot blank something P5 already answered.

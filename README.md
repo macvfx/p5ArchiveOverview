@@ -35,12 +35,14 @@ longer needed, and a Mac without Homebrew produces the same files as one with it
    - View results in the table (top) and progress in the log (bottom)
    - Select any row and choose **Job Details** to read P5's job state, report or completion protocol
    - If the selected server is unavailable, click **Cancel Query** or press `Esc`, then select another server
+   - **Right-click a server in the sidebar** for **Edit…** (opens Manage Servers already selected to it) and **Delete…** (asks whether to also delete that server's saved history)
 
 4. **View History**
    - Toggle from "Current" to "History" in the toolbar
    - Filter by server, and by job status — All, Finished, Warning, Error, Cancelled or Running, each showing how many rows it would give
    - Export to CSV using the export button (↑). The export follows both filters, and the status appears in the filename
    - **Delete ignores the status filter** — it removes the selected server's whole history, not just what is on screen
+   - **Delete just some rows** — click one, shift-click a range, or cmd-click a scattered selection, then press Delete, right-click, or use the trash button that appears while something is selected
 
 5. **Try it without a server** (optional)
    - In **Manage Servers → Add**, turn on **Demo Mode** and pick a scenario
@@ -75,6 +77,8 @@ After importing, edit each new server once to enter its password (stored in Keyc
 ## Features
 
 - **Demo Mode** — flag a server as a demo server and pick a scenario (Healthy Fleet, Drive Needs Cleaning, Busy Archive Week, Index Discovery) to see the app work on made-up data, with no real server, credentials or network connection
+- **Sidebar server right-click** — Edit opens Manage Servers already selected to that server; Delete asks whether to also remove its saved history
+- **History row/range deletion** — select one row, a range or a scattered selection and delete just those, alongside the existing whole-server delete
 - **Archive Jobs** — query and display recent archive jobs with plan, pool, status, size, client, and timing
 - **Job Details** — correlate any selected overview row using actual job times, size, status and archive metadata, then show its fields and available report or completion protocol
 - **Background detail cache** — after the overview appears, recent job states and likely protocols are read into a per-server in-memory cache without delaying the primary result
