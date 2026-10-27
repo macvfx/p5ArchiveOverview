@@ -22,6 +22,15 @@ the same ground. Change one, change the other.
 
 ---
 
+## Demo Mode
+
+Manage Servers → Add, then turn on Demo Mode and pick a scenario. A demo server answers with
+made-up jobs and pool usage instead of talking to a real P5 server — no address, credentials or
+network connection needed. Useful for a presentation or a screenshot; a demo server never leaves
+this Mac and connects nowhere.
+
+---
+
 ## HTTP or HTTPS
 
 P5 answers the same requests two ways: in the clear on port 8000, and over TLS on port 8443. Which

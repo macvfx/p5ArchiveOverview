@@ -42,6 +42,10 @@ longer needed, and a Mac without Homebrew produces the same files as one with it
    - Export to CSV using the export button (↑). The export follows both filters, and the status appears in the filename
    - **Delete ignores the status filter** — it removes the selected server's whole history, not just what is on screen
 
+5. **Try it without a server** (optional)
+   - In **Manage Servers → Add**, turn on **Demo Mode** and pick a scenario
+   - A demo server answers with made-up jobs and pool usage — no address, credentials or network connection needed
+
 ## File Locations
 
 | File Type | Location |
@@ -70,6 +74,7 @@ After importing, edit each new server once to enter its password (stored in Keyc
 
 ## Features
 
+- **Demo Mode** — flag a server as a demo server and pick a scenario (Healthy Fleet, Drive Needs Cleaning, Busy Archive Week, Index Discovery) to see the app work on made-up data, with no real server, credentials or network connection
 - **Archive Jobs** — query and display recent archive jobs with plan, pool, status, size, client, and timing
 - **Job Details** — correlate any selected overview row using actual job times, size, status and archive metadata, then show its fields and available report or completion protocol
 - **Background detail cache** — after the overview appears, recent job states and likely protocols are read into a per-server in-memory cache without delaying the primary result
