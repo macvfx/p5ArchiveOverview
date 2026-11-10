@@ -39,9 +39,10 @@ longer needed, and a Mac without Homebrew produces the same files as one with it
 
 4. **View History**
    - Toggle from "Current" to "History" in the toolbar
+   - Search by any part of a folder name or archived path to find which server handled it and when
    - Filter by server, and by job status — All, Finished, Warning, Error, Cancelled or Running, each showing how many rows it would give
-   - Export to CSV using the export button (↑). The export follows both filters, and the status appears in the filename
-   - **Delete ignores the status filter** — it removes the selected server's whole history, not just what is on screen
+   - Export to CSV using the export button (↑). The export follows the search and filters, and the status appears in the filename
+   - **Delete ignores filters and search** — it removes the selected server's whole history, not just what is on screen
    - **Delete just some rows** — click one, shift-click a range, or cmd-click a scattered selection, then press Delete, right-click, or use the trash button that appears while something is selected
 
 5. **Try it without a server** (optional)
@@ -85,7 +86,8 @@ After importing, edit each new server once to enter its password (stored in Keyc
 - **Plan and pool shown separately** — a plan is the configuration that ran, a pool is the media it wrote to; P5 returns both and they are not interchangeable
 - **Path-first results** — the Directories column receives the flexible table space by default; manual column widths persist across launches
 - **Pool Usage** — view storage pool utilization (used/total/free) per server
-- **History** — SQLite-backed archive history persisted across sessions, filterable by server and by job status, with CSV export
+- **History** — SQLite-backed archive history persisted across sessions, searchable by archived
+  folder path and filterable by server and job status, with CSV export
 - **One row per job** — a job seen while running is refreshed when it finishes, rather than stored a second time
 - **Multi-Server** — shared server configuration format with Import/Export JSON support
 - **Manage Servers workflow** — add, edit, duplicate, delete, import, and export server entries from one sheet without sidebar context menus

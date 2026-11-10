@@ -107,9 +107,13 @@ recorded while running is updated when it finishes rather than stored again.
 
 - **Filter by server, and by status** — All, Finished, Warning, Error, Cancelled or Running, each showing
   how many rows it would give, counted within whichever server is selected.
-- **Both filters follow the export.** The CSV contains what you are looking at, and the status
+- **Search archived folders** — enter any part of a folder name or path to search all saved History,
+  including records older than the normal 1,000-row display. If a job contains several paths, the
+  Directories column shows the matching path. Server and Start/Finish Time show where and when it
+  was archived. Choose All Servers when you do not know which server handled it.
+- **The search and filters follow the export.** The CSV contains what you are looking at, and the status
   appears in the filename so an errors-only file cannot later be mistaken for a full one.
-- **Delete ignores the status filter.** The red trash button removes the selected server's whole
+- **Delete ignores filters and search.** The red trash button removes the selected server's whole
   history. Deleting only what happens to be on screen is not what a trash button beside a filter
   should mean.
 - **Delete just some rows** by selecting them — click one, shift-click a range, or cmd-click a
