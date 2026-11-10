@@ -96,6 +96,15 @@ After importing, edit each new server once to enter its password (stored in Keyc
 - **CSV Export** — export both current query results and historical data; numbers are written unquoted so size columns sum in a spreadsheet
 - **Bounded and cancellable queries** — offline connections time out after eight seconds; active queries can be cancelled while the server list remains available
 
+## Testing against a local P5 lab
+
+To see real P5 answers without touching a production server, run a disposable P5 server on this
+Mac with [P5 Local Lab](https://github.com/macvfx/P5-local-lab-setup) and add it as a server:
+address `127.0.0.1`, Protocol HTTP, port `20000` for `p5-lab-01`, `20001` for `p5-lab-02`, and so
+on. The lab can mount a folder of source media read-only at `/media`, so a test archive job cannot
+change the originals, and it checks an instance's ports are free before creating it. The
+[User Guide](USER_GUIDE.md#testing-against-a-local-p5-lab) has the steps.
+
 ## Help menu
 
 - **P5 Archive Overview User Guide** (`⌘?`) — the full guide, inside the app. `USER_GUIDE.md`

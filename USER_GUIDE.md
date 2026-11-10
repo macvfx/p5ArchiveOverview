@@ -34,6 +34,38 @@ this Mac and connects nowhere.
 
 ---
 
+## Testing against a local P5 lab
+
+Demo Mode shows made-up data. To see real P5 answers without touching a production server, run a
+disposable P5 server on this Mac with
+[P5 Local Lab](https://github.com/macvfx/P5-local-lab-setup). Each lab instance is a real P5
+server in a container, reachable only from this Mac.
+
+1. **Create an instance with source media** — in the lab project, run
+   `./scripts/create-instance-with-media.sh <media-folder> [name] [rest-port] [cli-port]`. The
+   folder is mounted read-only at `/media` inside P5, so an archive job can read your files but
+   cannot change or delete them. `P5_LAB_MEDIA=<media-folder> ./scripts/create-instances.sh <count>`
+   does the same for a whole batch.
+2. **Add it here** — Manage Servers → Add. Address `127.0.0.1`, Protocol HTTP, and the instance's
+   web/API port: `20000` for `p5-lab-01`, `20001` for `p5-lab-02`, and so on. Use the username and
+   password you sign in to that instance's P5 web page with. Add one server per instance.
+3. **Archive something, then Run Query** — a new lab server has archived nothing, so its first
+   query returns no rows. In P5, request a trial licence, set up an Archive plan with `/media` as
+   its source, and run it. The job then appears here like any other.
+
+- **Ports are checked before an instance is created.** The lab's create scripts make sure an
+  instance's ports are free first, and the batch script skips a number whose port is busy. Enter
+  the port the script printed — it will not follow the numbering if a number was skipped.
+- **Use the web/API port, not the CLI port.** Each instance also publishes a P5 CLI port, `29001`
+  and up. This app never uses it.
+- **If the server does not answer**, the instance is stopped or the port is not the one it was
+  created with. Run the lab's `./scripts/status.sh <name>`.
+- **A recreated instance is a new server.** History is kept by alias. Destroy and recreate an
+  instance under the same alias and its old and new jobs share one history. Give it a new alias,
+  or delete the old history first, to keep them apart.
+
+---
+
 ## HTTP or HTTPS
 
 P5 answers the same requests two ways: in the clear on port 8000, and over TLS on port 8443. Which
