@@ -36,6 +36,7 @@ longer needed, and a Mac without Homebrew produces the same files as one with it
    - Select any row and choose **Job Details** to read P5's job state, report or completion protocol
    - If the selected server is unavailable, click **Cancel Query** or press `Esc`, then select another server
    - **Right-click a server in the sidebar** for **Edit…** (opens Manage Servers already selected to it) and **Delete…** (asks whether to also delete that server's saved history)
+   - Click **Query All** to query every configured server sequentially and refresh the shared History database
 
 4. **View History**
    - Toggle from "Current" to "History" in the toolbar
@@ -48,6 +49,11 @@ longer needed, and a Mac without Homebrew produces the same files as one with it
 5. **Try it without a server** (optional)
    - In **Manage Servers → Add**, turn on **Demo Mode** and pick a scenario
    - A demo server answers with made-up jobs and pool usage — no address, credentials or network connection needed
+
+6. **Schedule History refreshes** (optional)
+   - Open Settings (`⌘,`) and choose Hourly, Daily or Weekly
+   - Scheduled queries use Query All and update History without creating per-run JSON/CSV folders
+   - P5 Archive Overview must remain open in this first scheduling stage
 
 ## File Locations
 
@@ -77,11 +83,14 @@ After importing, edit each new server once to enter its password (stored in Keyc
 
 ## Features
 
+- **Query All** — query every configured server in turn, continue past failures, cancel the remaining queue, and finish with succeeded/failed/skipped totals
+- **Global query schedule** — run Query All hourly, daily or weekly while the app is open; scheduled refreshes update History without creating per-run output folders
 - **Demo Mode** — flag a server as a demo server and pick a scenario (Healthy Fleet, Drive Needs Cleaning, Busy Archive Week, Index Discovery) to see the app work on made-up data, with no real server, credentials or network connection
 - **Sidebar server right-click** — Edit opens Manage Servers already selected to that server; Delete asks whether to also remove its saved history
 - **History row/range deletion** — select one row, a range or a scattered selection and delete just those, alongside the existing whole-server delete
 - **Archive Jobs** — query and display recent archive jobs with plan, pool, status, size, client, and timing
 - **Job Details** — correlate any selected overview row using actual job times, size, status and archive metadata, then show its fields and available report or completion protocol
+- **Add to Overview** — keep directories, pool and volume from the matched job against an overview row that P5 reported without them; saved in the app only, marked with a pencil, searchable and exported
 - **Background detail cache** — after the overview appears, recent job states and likely protocols are read into a per-server in-memory cache without delaying the primary result
 - **Plan and pool shown separately** — a plan is the configuration that ran, a pool is the media it wrote to; P5 returns both and they are not interchangeable
 - **Path-first results** — the Directories column receives the flexible table space by default; manual column widths persist across launches

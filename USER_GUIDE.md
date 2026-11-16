@@ -25,6 +25,31 @@ the same ground. Change one, change the other.
 
 ---
 
+## Query All and scheduling
+
+**Query All** refreshes every configured server sequentially. It does not change the selected
+server; that server is queried last so the Current table still belongs to the heading above it.
+
+- An offline server, invalid address or other request failure is recorded in the Log and Query All
+  continues with the next server.
+- A server without a saved password is skipped. Demo Mode servers need no password.
+- Cancel stops the active request and skips the remaining queue.
+- The final Log line reports how many servers succeeded, failed and were skipped.
+- Manual Query All writes the same JSON and CSV output folders as individual queries. Job-detail
+  prefetch is limited to the selected server so a fleet refresh does not generate unnecessary P5
+  requests.
+
+Open **Settings** (`⌘,`) to choose Off, Hourly, Daily or Weekly. Daily and weekly schedules have a
+time; weekly also has a day. Demo Mode servers are excluded unless **Include Demo Mode servers**
+is enabled. Settings shows the next run, the last scheduled run and its result, and includes a
+**Query All Now** test button.
+
+Scheduled runs update History without writing a new JSON/CSV folder for every server. In this
+first stage, the schedule runs only while P5 Archive Overview remains open. The settings are saved
+for the planned menu-bar/background helper, but that helper is not part of this version.
+
+---
+
 ## Demo Mode
 
 Manage Servers → Add, then turn on Demo Mode and pick a scenario. A demo server answers with
@@ -78,6 +103,30 @@ Select any row in Current or History and choose **Job Details**.
    Otherwise the app shows scored candidates and their match reasons instead of guessing.
 5. The detail sheet shows P5's job fields and completed-job protocol. For an active job without a
    protocol yet, it shows P5's current report instead. Every request is read-only.
+
+### Adding job details to the overview
+
+P5 lists an archive submitted through its REST API with no pool and no directories. The matched
+job still knows more, and the **Add to Overview** section of the Job Details sheet lets you keep
+it with the row.
+
+| Field | Where it comes from | What to check |
+|---|---|---|
+| Directories | The job description | It may be a path or a project name; edit it, one per line |
+| Pool | The volume label | P5 does not link a volume to its pool, so confirm the suggestion or pick from **Known Pools** |
+| Volume | Label and barcode in the completion protocol | Shown in the **Volume** column |
+
+1. Confirm the **Matched P5 job** at the top is the right one. If not, use **Choose a Different
+   Candidate** first.
+2. Tick the fields to keep and correct them if needed.
+3. Choose **Save to Overview**.
+
+Saved details appear in Current and History with a small pencil, are found by History's folder
+search, and are included in the History CSV export. They are stored only in this app; nothing is
+written to P5. A field P5 already reports cannot be added, and if P5 later fills in a field you
+added, P5's value is shown. **Remove Added Details** returns the row to what P5 reports.
+
+Deleting a server's whole history also deletes its saved details. Deleting selected rows does not.
 
 The main Log reports how many IDs, state records and completion protocols P5 returned. If no match
 is found, the failure sheet repeats that selectable diagnostic and lists up to five nearest jobs
