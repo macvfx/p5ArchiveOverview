@@ -90,6 +90,7 @@ After importing, edit each new server once to enter its password (stored in Keyc
 - **History row/range deletion** — select one row, a range or a scattered selection and delete just those, alongside the existing whole-server delete
 - **Archive Jobs** — query and display recent archive jobs with plan, pool, status, size, client, and timing
 - **Job Details** — correlate any selected overview row using actual job times, size, status and archive metadata, then show its fields and available report or completion protocol
+- **Remembered job matches** — a row's matched P5 job is stored once found, so Job Details opens at once the next time; double-click a row to open it, and Refresh from P5 re-reads the one job
 - **Add to Overview** — keep directories, pool and volume from the matched job against an overview row that P5 reported without them; saved in the app only, marked with a pencil, searchable and exported
 - **Background detail cache** — after the overview appears, recent job states and likely protocols are read into a per-server in-memory cache without delaying the primary result
 - **Plan and pool shown separately** — a plan is the configuration that ran, a pool is the media it wrote to; P5 returns both and they are not interchangeable

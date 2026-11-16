@@ -104,6 +104,20 @@ Select any row in Current or History and choose **Job Details**.
 5. The detail sheet shows P5's job fields and completed-job protocol. For an active job without a
    protocol yet, it shows P5's current report instead. Every request is read-only.
 
+### Opening a row's job again
+
+The first time you open Job Details on a row, the app has to find its job among the server's
+recent jobs, which can take a while. Once a finished job has been matched, the app remembers it.
+
+- Open the same row again, by the button, a double-click or the right-click menu, and the job
+  appears at once. A line at the top says it is a remembered match and that nothing was fetched.
+- **Refresh from P5** re-reads just that job.
+- **Choose a Different Candidate** runs the full search again and remembers whichever job you pick.
+- A job that is still running is looked up each time until it finishes.
+
+Remembered matches are stored only in this app, with the protocol text P5 returned. Deleting a
+server's whole history deletes them; deleting selected rows does not.
+
 ### Adding job details to the overview
 
 P5 lists an archive submitted through its REST API with no pool and no directories. The matched
